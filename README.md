@@ -1,2 +1,3 @@
 # Simple Image Slider in JQuery
-Live preview: http://htmlpreview.github.io/?https://github.com/jurajlesko/SimpleImageSlider/blob/master/index.html
+
+Preview can be seen on this link: https://jurajlesko.github.io/simple-image-slider/
