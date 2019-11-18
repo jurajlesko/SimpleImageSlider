@@ -1,58 +1,123 @@
+
+
+	var pics =  document.querySelectorAll("#images img");
+	
+	
+	
+	var pics_src = [];
+	
+	for (var i = 0, l = pics.length; i < l; i++) {
+		pics_src.push(pics[i].getAttribute("src"))
+	};	
+	
+	var pics_alt = []
+	
+	for (var i = 0, l = pics.length; i < l; i++) {
+		pics_alt.push(pics[i].getAttribute("alt"))
+	};
+
+	var index = 0;
+	
+	document.getElementById("bigImage").setAttribute("src", pics_src[index]);
+	document.getElementById("bigImage").setAttribute("alt", pics_alt[index]);
+	document.getElementById("caption").innerHTML = pics_alt[index];
+	
+	document.getElementById("next").onclick = function() {
+	
+		index++;
+		
+		if (index >= pics_src.length) {
+		
+
+			index = 0;
+
+		}
+		
+		document.getElementById("bigImage").setAttribute("src", pics_src[index]);
+		document.getElementById("bigImage").setAttribute("alt", pics_alt[index]);
+		document.getElementById("caption").innerHTML = pics_alt[index];
+	
+	};
+	
+	
+	document.getElementById("prev").onclick = function() {
+	
+		index--;
+		
+		if (index < 0) {
+		
+
+			index = pics_src.length -1;
+
+		}
+		
+		document.getElementById("bigImage").setAttribute("src", pics_src[index]);
+		document.getElementById("bigImage").setAttribute("alt", pics_alt[index]);
+		document.getElementById("caption").innerHTML = pics_alt[index];
+	
+	};
+
+
+
+// Jquery version
+/*
 $(document).ready(function() {
 
-	var photos =  $('#images img').map(function() { return this.src; });
+	var pics_src =  $('#images img').map(function() { return this.src; });
 	
-	var description =  $('#images img').map(function() { return this.alt; });
+	var pics_alt =  $('#images img').map(function() { return this.alt; });
 
-	var source = 0;
+	var index = 0;
 	
 	$("#bigImage").attr({
-		'src': photos[source],
-		'alt': 'description[source]'
+		'src': pics_src[index],
+		'alt': 'pics_alt[index]'
 	});
 	
-	$("#caption").text(description[source]);
+	$("#caption").text(pics_alt[index]);
 	
 	
 	$("#next").click(function() {
 	
-		source++;
+		index++;
 		
-		if (source >= photos.length) {
+		if (index >= pics_src.length) {
 		
 
-			source = 0;
+			index = 0;
 
 		}
 		
 		$("#bigImage").attr({
-			'src': photos[source],
-			'alt': 'description[source]'
+			'src': pics_src[index],
+			'alt': 'pics_alt[index]'
 		});
 		
-		$("#caption").text(description[source]);
+		$("#caption").text(pics_alt[index]);
 	
 	});
 	
 	
 	$("#prev").click(function() {
 	
-		source--;
+		index--;
 		
-		if (source < 0) {
+		if (index < 0) {
 		
 
-			source = photos.length -1;
+			index = pics_src.length -1;
 
 		}
 		
 		$("#bigImage").attr({
-			'src': photos[source],
-			'alt': 'description[source]'
+			'src': pics_src[index],
+			'alt': 'pics_alt[index]'
 		});
 
-		$("#caption").text(description[source]);
+		$("#caption").text(pics_alt[index]);
 	
 	});
 
 });
+*/
+
